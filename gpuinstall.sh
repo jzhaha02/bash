@@ -13,7 +13,10 @@ sudo systemctl start docker
 
 docker pull registry.cn-shanghai.aliyuncs.com/tcc_public/aigc:stable
 
-#GPU启动命令：
-docker run --gpus all --network host registry.cn-shanghai.aliyuncs.com/tcc_public/aigc:stable
+docker run --gpus all  -p 8888:8888 -p 7860:7860 -p 6666:22 \
+-v /mydata/models/sd:/workspace/stable-diffusion-webui/models/Stable-diffusion \
+-v /mydata/models/lora:/workspace/stable-diffusion-webui/models/Lora \
+--name sd \
+registry.cn-shanghai.aliyuncs.com/tcc_public/aigc:stable
 
 watch -n 3 nvidia-smi
