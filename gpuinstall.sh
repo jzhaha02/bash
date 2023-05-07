@@ -15,3 +15,5 @@ docker pull registry.cn-shanghai.aliyuncs.com/tcc_public/aigc:stable
 
 #GPU启动命令：
 docker run --gpus all --network host registry.cn-shanghai.aliyuncs.com/tcc_public/aigc:stable
+
+watch -n 3 nvidia-smi
